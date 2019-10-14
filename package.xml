@@ -1,0 +1,17 @@
+<package format="2">
+    <name>ogre_primitives</name>
+    <version>0.1.0</version>
+    <description>
+        Contains Ogre primitives. Typically objects that inherit from Ogre::SimpleRenderable. These objects can be
+        easily added to the Scene.
+    </description>
+    <maintainer email="andreas.reich@unibw.de">Andreas Reich</maintainer>
+    <license>BSD</license>
+
+    <author>Andreas Reich</author>
+
+    <buildtool_depend>catkin</buildtool_depend>
+
+    <depend>rviz</depend>
+    <depend>libqt5-gui</depend>
+</package>
