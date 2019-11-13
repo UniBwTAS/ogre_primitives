@@ -12,6 +12,5 @@
 
     <buildtool_depend>catkin</buildtool_depend>
 
-    <depend>rviz</depend>
-    <depend>libqt5-gui</depend>
+    <depend>libogre-dev</depend>
 </package>
