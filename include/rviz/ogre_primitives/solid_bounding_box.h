@@ -7,7 +7,6 @@
 
 namespace rviz
 {
-
 /** \addtogroup Core
  *  @{
  */
@@ -24,38 +23,36 @@ using namespace Ogre;
 
 class _OgreExport SolidBoundingBox : public SimpleRenderable
 {
+protected:
+  /** Builds the solid triangle list.
+   */
+  void setupBoundingBoxVertices(const AxisAlignedBox& aab);
 
-  protected:
+  Real mRadius;
 
-    /** Builds the solid triangle list.
-     */
-    void setupBoundingBoxVertices( const AxisAlignedBox& aab );
+  void _initSolidBoundingBox();
 
-    Real mRadius;
+public:
+  SolidBoundingBox();
+  SolidBoundingBox(const String& name);
+  ~SolidBoundingBox();
 
-    void _initSolidBoundingBox();
+  /** Builds the solid triangle list.
+      @param
+          aabb bounding box to build a solid from.
+  */
+  void setupBoundingBox(const AxisAlignedBox& aabb);
 
-  public:
-    SolidBoundingBox();
-    SolidBoundingBox( const String& name );
-    ~SolidBoundingBox();
+  Real getSquaredViewDepth(const Camera* cam) const;
 
-    /** Builds the solid triangle list.
-        @param
-            aabb bounding box to build a solid from.
-    */
-    void setupBoundingBox( const AxisAlignedBox& aabb );
-
-    Real getSquaredViewDepth( const Camera* cam ) const;
-
-    Real getBoundingRadius( void ) const
-    {
-        return mRadius;
-    }
+  Real getBoundingRadius(void) const
+  {
+    return mRadius;
+  }
 };
 /** @} */
 /** @} */
 
-} // namespace rviz
+}  // namespace rviz
 
 #endif

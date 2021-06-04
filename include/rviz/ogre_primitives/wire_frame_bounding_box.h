@@ -7,7 +7,6 @@
 
 namespace rviz
 {
-
 /** \addtogroup Core
  *  @{
  */
@@ -24,38 +23,36 @@ using namespace Ogre;
 
 class _OgreExport WireBoundingBox : public SimpleRenderable
 {
+protected:
+  /** Builds the wireframe line list.
+   */
+  void setupBoundingBoxVertices(const AxisAlignedBox& aab);
 
-  protected:
+  Real mRadius;
 
-    /** Builds the wireframe line list.
-     */
-    void setupBoundingBoxVertices( const AxisAlignedBox& aab );
+  void _initWireBoundingBox();
 
-    Real mRadius;
+public:
+  WireBoundingBox();
+  WireBoundingBox(const String& name);
+  ~WireBoundingBox();
 
-    void _initWireBoundingBox();
+  /** Builds the wireframe line list.
+      @param
+          aabb bounding box to build a wireframe from.
+  */
+  void setupBoundingBox(const AxisAlignedBox& aabb);
 
-  public:
-    WireBoundingBox();
-    WireBoundingBox( const String& name );
-    ~WireBoundingBox();
+  Real getSquaredViewDepth(const Camera* cam) const;
 
-    /** Builds the wireframe line list.
-        @param
-            aabb bounding box to build a wireframe from.
-    */
-    void setupBoundingBox( const AxisAlignedBox& aabb );
-
-    Real getSquaredViewDepth( const Camera* cam ) const;
-
-    Real getBoundingRadius( void ) const
-    {
-        return mRadius;
-    }
+  Real getBoundingRadius(void) const
+  {
+    return mRadius;
+  }
 };
 /** @} */
 /** @} */
 
-} // namespace rviz
+}  // namespace rviz
 
 #endif
