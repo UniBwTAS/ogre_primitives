@@ -27,7 +27,8 @@ set(SRC_FILES
     src/wire_frame_bounding_box.cpp
     src/solid_bounding_box.cpp
     src/frustum2d.cpp
-    src/map_tile.cpp)
+    src/map_tile.cpp
+    src/cone2d.cpp)
 
 add_library(${PROJECT_NAME} ${SRC_FILES})
 
