@@ -1,6 +1,7 @@
 #include <OgreCamera.h>
 #include <OgreHardwareBufferManager.h>
 #include <OgreSimpleRenderable.h>
+#include <OgreMaterialManager.h>
 
 #include <rviz/ogre_primitives/map_tile.h>
 
@@ -52,7 +53,8 @@ void MapTile::initMapTile()
   bind->setBinding(BINDING, vbuf);
 
   // set basic white material
-  this->setMaterial("BaseWhiteNoLighting");
+  auto material = Ogre::MaterialManager::getSingleton().getByName("BaseWhiteNoLighting");
+  this->setMaterial(material);
 }
 
 void MapTile::setParameters(float top_left_x, float top_left_y, float bottom_left_x, float bottom_left_y,

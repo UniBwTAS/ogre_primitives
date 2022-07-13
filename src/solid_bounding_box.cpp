@@ -2,6 +2,7 @@
 #include <OgreHardwareBufferManager.h>
 #include <OgreSimpleRenderable.h>
 #include <OgreTechnique.h>
+#include <OgreMaterialManager.h>
 
 #include <rviz/ogre_primitives/solid_bounding_box.h>
 
@@ -48,7 +49,8 @@ void SolidBoundingBox::_initSolidBoundingBox()
   bind->setBinding(BINDING, vbuf);
 
   // set basic white material
-  this->setMaterial("BaseWhiteNoLighting");
+  auto material = Ogre::MaterialManager::getSingleton().getByName("BaseWhiteNoLighting");
+  this->setMaterial(material);
 }
 
 SolidBoundingBox::~SolidBoundingBox()

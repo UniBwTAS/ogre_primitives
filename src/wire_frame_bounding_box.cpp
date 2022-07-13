@@ -1,6 +1,7 @@
 #include <OgreCamera.h>
 #include <OgreHardwareBufferManager.h>
 #include <OgreSimpleRenderable.h>
+#include <OgreMaterialManager.h>
 
 #include <rviz/ogre_primitives/wire_frame_bounding_box.h>
 
@@ -41,7 +42,8 @@ void WireBoundingBox::_initWireBoundingBox()
   bind->setBinding(POSITION_BINDING, vbuf);
 
   // set basic white material
-  this->setMaterial("BaseWhiteNoLighting");
+  auto material = Ogre::MaterialManager::getSingleton().getByName("BaseWhiteNoLighting");
+  this->setMaterial(material);
 }
 
 WireBoundingBox::~WireBoundingBox()

@@ -1,6 +1,7 @@
 #include <OgreCamera.h>
 #include <OgreHardwareBufferManager.h>
 #include <OgreSimpleRenderable.h>
+#include <OgreMaterialManager.h>
 
 #include <rviz/ogre_primitives/frustum2d.h>
 
@@ -46,7 +47,8 @@ void Frustum2D::initCircularSectorGround()
   bind->setBinding(POSITION_BINDING, vbuf);
 
   // set basic white material
-  this->setMaterial("BaseWhiteNoLighting");
+  auto material = Ogre::MaterialManager::getSingleton().getByName("BaseWhiteNoLighting");
+  this->setMaterial(material);
 }
 
 void Frustum2D::setParameters(float angle_left, float angle_right, float range, float height)

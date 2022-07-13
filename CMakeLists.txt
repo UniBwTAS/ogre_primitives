@@ -1,19 +1,17 @@
-cmake_minimum_required(VERSION 3.1)
-
-set(CMAKE_CXX_STANDARD 11)
-
+cmake_minimum_required(VERSION 3.5)
 project(ogre_primitives)
 
-find_package(catkin REQUIRED)
-find_package(PkgConfig REQUIRED)
+# Default to C++14
+if (NOT CMAKE_CXX_STANDARD)
+    set(CMAKE_CXX_STANDARD 14)
+endif ()
 
-pkg_check_modules(OGRE_OV OGRE OGRE-Overlay REQUIRED)
+if (CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+    add_compile_options(-Wall -Wextra -Wpedantic -Wnon-virtual-dtor -Woverloaded-virtual)
+endif ()
 
-catkin_package(
-    INCLUDE_DIRS include
-    LIBRARIES ${PROJECT_NAME}
-    CATKIN_DEPENDS
-    DEPENDS OGRE_OV OGRE OGRE-Overlay)
+find_package(ament_cmake REQUIRED)
+find_package(rviz_ogre_vendor REQUIRED)
 
 include_directories(
     ${catkin_INCLUDE_DIRS}
@@ -30,10 +28,39 @@ set(SRC_FILES
     src/map_tile.cpp
     src/cone2d.cpp)
 
-add_library(${PROJECT_NAME} ${SRC_FILES})
+add_library(${PROJECT_NAME} SHARED ${SRC_FILES})
 
-target_link_libraries(${PROJECT_NAME}
-    ${catkin_LIBRARIES}
-    ${OGRE_OV_LIBRARIES}
-    ${OGRE_LIBRARIES}
-    ${OGRE-Overlay_LIBRARIES})
+target_include_directories(${PROJECT_NAME} PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include/${PROJECT_NAME}>)
+
+target_link_libraries(${PROJECT_NAME} PUBLIC
+    rviz_ogre_vendor::OgreMain
+    rviz_ogre_vendor::OgreOverlay)
+
+# ament_target_dependencies(${PROJECT_NAME} PUBLIC ...)
+
+# Export old-style CMake variables
+ament_export_include_directories("include/${PROJECT_NAME}")
+
+# Export modern CMake targets
+ament_export_targets(${PROJECT_NAME} HAS_LIBRARY_TARGET)
+
+ament_export_dependencies(
+    rviz_ogre_vendor
+)
+
+install(
+    TARGETS ${PROJECT_NAME}
+    EXPORT ${PROJECT_NAME}
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin
+)
+
+install(
+    DIRECTORY include/
+    DESTINATION include/${PROJECT_NAME}
+)
+
+ament_package()
