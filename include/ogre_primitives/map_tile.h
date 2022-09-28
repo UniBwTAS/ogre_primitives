@@ -4,7 +4,7 @@
 
 #include <OgreSimpleRenderable.h>
 
-namespace rviz
+namespace ogre_primitives
 {
 using namespace Ogre;
 
@@ -30,4 +30,4 @@ public:
   }
 };
 
-}  // namespace rviz
+}  // namespace ogre_primitives

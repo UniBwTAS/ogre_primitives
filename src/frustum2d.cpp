@@ -3,9 +3,9 @@
 #include <OgreSimpleRenderable.h>
 #include <OgreMaterialManager.h>
 
-#include <rviz/ogre_primitives/frustum2d.h>
+#include <ogre_primitives/frustum2d.h>
 
-namespace rviz
+namespace ogre_primitives
 {
 #define POSITION_BINDING 0
 
@@ -94,4 +94,4 @@ Real Frustum2D::getSquaredViewDepth(const Camera* cam) const
   return dist.squaredLength();
 }
 
-}  // namespace rviz
+}  // namespace ogre_primitives

@@ -13,14 +13,6 @@ endif ()
 find_package(ament_cmake REQUIRED)
 find_package(rviz_ogre_vendor REQUIRED)
 
-include_directories(
-    ${catkin_INCLUDE_DIRS}
-    ${OGRE_OV_INCLUDE_DIRS}
-    ${OGRE_INCLUDE_DIRS}
-    ${OGRE-Overlay_INCLUDE_DIRS}
-    include
-)
-
 set(SRC_FILES
     src/wire_frame_bounding_box.cpp
     src/solid_bounding_box.cpp

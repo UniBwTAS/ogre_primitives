@@ -1,11 +1,11 @@
-#ifndef WIRE_FRAME_BOUNDING_BOX_H
-#define WIRE_FRAME_BOUNDING_BOX_H
+#ifndef SOLID_BOUNDING_BOX_H
+#define SOLID_BOUNDING_BOX_H
 
 #include <OgrePrerequisites.h>
 
 #include <OgreSimpleRenderable.h>
 
-namespace rviz
+namespace ogre_primitives
 {
 /** \addtogroup Core
  *  @{
@@ -13,33 +13,33 @@ namespace rviz
 /** \addtogroup Scene
  *  @{
  */
-/** Allows the rendering of a wireframe bounding box.
+/** Allows the rendering of a solid bounding box.
 @remarks
-    This class builds a wireframe renderable from a given aabb. A pointer to this class can be
+    This class builds a solid renderable from a given aabb. A pointer to this class can be
                 added to a render queue to display the bounding box of an object.
 */
 
 using namespace Ogre;
 
-class _OgreExport WireBoundingBox : public SimpleRenderable
+class _OgreExport SolidBoundingBox : public SimpleRenderable
 {
 protected:
-  /** Builds the wireframe line list.
+  /** Builds the solid triangle list.
    */
   void setupBoundingBoxVertices(const AxisAlignedBox& aab);
 
   Real mRadius;
 
-  void _initWireBoundingBox();
+  void _initSolidBoundingBox();
 
 public:
-  WireBoundingBox();
-  WireBoundingBox(const String& name);
-  ~WireBoundingBox();
+  SolidBoundingBox();
+  SolidBoundingBox(const String& name);
+  ~SolidBoundingBox();
 
-  /** Builds the wireframe line list.
+  /** Builds the solid triangle list.
       @param
-          aabb bounding box to build a wireframe from.
+          aabb bounding box to build a solid from.
   */
   void setupBoundingBox(const AxisAlignedBox& aabb);
 
@@ -53,6 +53,6 @@ public:
 /** @} */
 /** @} */
 
-}  // namespace rviz
+}  // namespace ogre_primitives
 
 #endif

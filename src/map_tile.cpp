@@ -3,9 +3,9 @@
 #include <OgreSimpleRenderable.h>
 #include <OgreMaterialManager.h>
 
-#include <rviz/ogre_primitives/map_tile.h>
+#include <ogre_primitives/map_tile.h>
 
-namespace rviz
+namespace ogre_primitives
 {
 #define BINDING 0
 
@@ -147,4 +147,4 @@ Real MapTile::getSquaredViewDepth(const Camera* cam) const
   return dist.squaredLength();
 }
 
-}  // namespace rviz
+}  // namespace ogre_primitives

@@ -3,9 +3,9 @@
 #include <OgreSimpleRenderable.h>
 #include <OgreMaterialManager.h>
 
-#include <rviz/ogre_primitives/wire_frame_bounding_box.h>
+#include <ogre_primitives/wire_frame_bounding_box.h>
 
-namespace rviz
+namespace ogre_primitives
 {
 #define POSITION_BINDING 0
 
@@ -181,4 +181,4 @@ Real WireBoundingBox::getSquaredViewDepth(const Camera* cam) const
   return dist.squaredLength();
 }
 
-}  // namespace rviz
+}  // namespace ogre_primitives

@@ -4,23 +4,24 @@
 
 #include <OgreSimpleRenderable.h>
 
-namespace rviz
+namespace ogre_primitives
 {
 using namespace Ogre;
 
-class Frustum2D : public SimpleRenderable
+class Cone2D : public SimpleRenderable
 {
 protected:
   bool fill_;
+  float range_min_;
   float radius_;
   void initCircularSectorGround();
 
 public:
-  Frustum2D(bool fill);
-  Frustum2D(const String& name, bool fill);
-  ~Frustum2D();
+  Cone2D(bool fill, float range_min = 0);
+  Cone2D(const String& name, bool fill, float range_min = 0);
+  ~Cone2D();
 
-  void setParameters(float angle_left, float angle_right, float range, float height);
+  void setParameters(float angle_min, float angle_max, float range);
 
   Real getSquaredViewDepth(const Camera* cam) const;
 
@@ -30,4 +31,4 @@ public:
   }
 };
 
-}  // namespace rviz
+}  // namespace ogre_primitives

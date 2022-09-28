@@ -4,9 +4,9 @@
 #include <OgreTechnique.h>
 #include <OgreMaterialManager.h>
 
-#include <rviz/ogre_primitives/solid_bounding_box.h>
+#include <ogre_primitives/solid_bounding_box.h>
 
-namespace rviz
+namespace ogre_primitives
 {
 #define BINDING 0
 
@@ -224,4 +224,4 @@ Real SolidBoundingBox::getSquaredViewDepth(const Camera* cam) const
   return dist.squaredLength();
 }
 
-}  // namespace rviz
+}  // namespace ogre_primitives
