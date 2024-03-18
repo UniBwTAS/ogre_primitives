@@ -3,7 +3,7 @@
 #include <OgreHardwareBufferManager.h>
 #include <OgreSimpleRenderable.h>
 
-#include <rviz/ogre_primitives/cone2d.h>
+#include <ogre_primitives/cone2d.h>
 
 namespace rviz
 {

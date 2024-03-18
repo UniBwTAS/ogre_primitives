@@ -2,7 +2,7 @@
 #include <OgreHardwareBufferManager.h>
 #include <OgreSimpleRenderable.h>
 
-#include <rviz/ogre_primitives/wire_frame_bounding_box.h>
+#include <ogre_primitives/wire_frame_bounding_box.h>
 
 namespace rviz
 {

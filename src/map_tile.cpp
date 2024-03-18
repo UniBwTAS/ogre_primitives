@@ -2,7 +2,7 @@
 #include <OgreHardwareBufferManager.h>
 #include <OgreSimpleRenderable.h>
 
-#include <rviz/ogre_primitives/map_tile.h>
+#include <ogre_primitives/map_tile.h>
 
 namespace rviz
 {

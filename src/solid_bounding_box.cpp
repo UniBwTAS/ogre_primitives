@@ -3,7 +3,7 @@
 #include <OgreSimpleRenderable.h>
 #include <OgreTechnique.h>
 
-#include <rviz/ogre_primitives/solid_bounding_box.h>
+#include <ogre_primitives/solid_bounding_box.h>
 
 namespace rviz
 {
